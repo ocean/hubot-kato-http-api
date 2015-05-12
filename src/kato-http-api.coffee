@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   Emit event "kato-http-message" from your script, after setting room name-id matches in Hubot's brain with
+#   Emit event "kato-http-message" from your script, after setting Kato "All" room URL in environment variables.
 #   
 #
 # Notes:
@@ -18,24 +18,23 @@
 #   ocean
 
 module.exports = (robot) ->
+
+  config = secrets:
+    katoRoomURL: process.env.HUBOT_KATO_ALL_ROOM_HTTP_POST_URL
+
   robot.on 'kato-http-post', (kato-http-post) ->
     sendMessage kato-http-post
-  
-  robot.brain.data.kato-http-api.rooms or= {}
-  
+
   sendMessage = (message) ->
     
     data = JSON.stringify({
-      room: message.room || 'all',
       text: message.text,
       from: message.from || robot.name,
       color: message.color || 'grey',
       renderer: 'markdown'
     })
     
-    roomURL = robot.brain.data.kato-http-api.rooms[data.room]
-    
-    robot.http(roomURL)
+    robot.http(config.secrets.katoRoomURL)
       .header('Content-Type', 'application/json')
       .post(data) (err, res, body) ->
         if err
