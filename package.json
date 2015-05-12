@@ -18,7 +18,7 @@
     "url": "https://github.com/ocean/hubot-kato-http-api/issues"
   },
   "dependencies": {
-    "hubot": "2.0.0",
+    "hubot": "^2.0.0",
     "coffee-script": "1.6.3"
   },
   "devDependencies": {
