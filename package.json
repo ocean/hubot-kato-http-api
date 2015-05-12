@@ -1,0 +1,34 @@
+{
+  "name": "hubot-kato-http-api",
+  "description": "Enable Hubot to post messages to Kato rooms using the HTTP API, allowing for messages with a coloured background and varying poster name.",
+  "version": "1.0.0",
+  "author": "Drew Robinson <drew.robinson@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "hubot-kato",
+    "kato"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ocean/hubot-kato-http-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ocean/hubot-kato-http-api/issues"
+  },
+  "dependencies": {
+    "hubot": "2.0.0"
+    "coffee-script": "1.6.3"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon-chai": "*",
+    "sinon": "*"
+  },
+  "main": "index.coffee",
+  "scripts": {
+    "test": "script/test"
+  }
+}
