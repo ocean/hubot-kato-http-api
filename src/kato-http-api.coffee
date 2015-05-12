@@ -22,15 +22,15 @@ module.exports = (robot) ->
   config = secrets:
     katoRoomURL: process.env.HUBOT_KATO_ALL_ROOM_HTTP_POST_URL
 
-  robot.on 'kato-http-post', (kato-http-post) ->
-    sendMessage kato-http-post
+  robot.on 'kato-http-post', (katoHttpPost) ->
+    sendMessage(katoHttpPost)
 
-  sendMessage = (message) ->
+  sendMessage = (katoHttpPost) ->
     
     data = JSON.stringify({
-      text: message.text,
-      from: message.from || robot.name,
-      color: message.color || 'grey',
+      text: katoHttpPost.text,
+      from: katoHttpPost.from || robot.name,
+      color: katoHttpPost.color || 'grey',
       renderer: 'markdown'
     })
     
