@@ -1,6 +1,6 @@
 {
   "name": "hubot-kato-http-api",
-  "description": "Enable Hubot to post messages to Kato rooms using the HTTP API, allowing for messages with a coloured background and varying poster name.",
+  "description": "Enable Hubot to post to Kato rooms using the HTTP API, allowing for messages with a coloured background and varying \"from\" name.",
   "version": "1.0.0",
   "author": "Drew Robinson <drew.robinson@gmail.com>",
   "license": "MIT",
