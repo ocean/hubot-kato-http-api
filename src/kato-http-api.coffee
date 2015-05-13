@@ -23,6 +23,8 @@ module.exports = (robot) ->
     katoRoomURL: process.env.HUBOT_KATO_ALL_ROOM_HTTP_POST_URL
 
   robot.on 'kato-http-post', (katoHttpPost) ->
+    console.log("Event detected:")
+    console.log(katoHttpPost)
     sendMessage(katoHttpPost)
 
   sendMessage = (katoHttpPost) ->
@@ -34,10 +36,15 @@ module.exports = (robot) ->
       renderer: 'markdown'
     })
     
+    console.log("Data object inside function:")
+    console.log(data)
+    
     robot.http(config.secrets.katoRoomURL)
       .header('Content-Type', 'application/json')
       .post(data) (err, res, body) ->
         if err
-          robot.emit 'error', err, res, body
+#          robot.emit 'error', err, res, body
+          console.log("HTTP error:")
+          console.log(err, res, body)
           return
         robot.emit res, body
