@@ -36,9 +36,6 @@ module.exports = (robot) ->
       renderer: 'markdown'
     })
     
-    console.log("Data object inside function:")
-    console.log(data)
-    
     robot.http(config.secrets.katoRoomURL)
       .header('Content-Type', 'application/json')
       .post(data) (err, res, body) ->
@@ -48,3 +45,5 @@ module.exports = (robot) ->
           console.log(err, res, body)
           return
         robot.emit res, body
+
+
